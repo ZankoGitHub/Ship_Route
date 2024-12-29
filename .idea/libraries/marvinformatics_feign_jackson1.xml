@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="marvinformatics.feign.jackson1" type="repository">
+    <properties maven-id="com.marvinformatics.feign:feign-jackson1:0.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/feign-jackson1-0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/feign-core-8.16.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/animal-sniffer-annotation-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-asl-1.9.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-mapper-asl-1.9.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
