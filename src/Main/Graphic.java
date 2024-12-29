@@ -18,6 +18,8 @@ import java.util.Random;
 public class Graphic {
 
     private static int algorithms ;
+    private static String totalEnergyString = " Energy used : " ;
+    private static String nodeSearchString = "  Total node searched : " ;
     private static boolean fillRiverType = false ;
     private static List<String> bestRoad;
     private static int[][] riverData;
@@ -36,15 +38,14 @@ public class Graphic {
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
             JLabel label = new JLabel("     Algorithm");
+            JLabel totalEnergy = new JLabel(totalEnergyString);
+            JLabel nodeSearch = new JLabel(nodeSearchString);
 
 
             // Buttons
             JButton randomFillBtn = new JButton("Random fill");
             JButton button = new JButton("Change Algorithm");
 
-
-//            frame.getContentPane().add(panel);
-//            frame.setVisible(true);
             Random random = new Random();
 
             bestRoad = new ArrayList<>();
@@ -77,6 +78,8 @@ public class Graphic {
             panel.add(randomFillBtn);
             panel.add(label);
             panel.add(button);
+            panel.add(totalEnergy);
+            panel.add(nodeSearch);
             panel.add(simulation);
             JScrollPane scrollPane = new JScrollPane(panel);
             scrollPane.setPreferredSize(new Dimension(750,850));
@@ -93,12 +96,21 @@ public class Graphic {
                 if (algorithms == 0){
                     bestRoad = aStar.getBestState().path;
                     label.setText("     A Star ");
+                    totalEnergy.setText(totalEnergyString + aStar.getBestState().energy);
+                    nodeSearch.setText(nodeSearchString + aStar.getCounter()+"  ");
+
                 } else if (algorithms == 1) {
                     bestRoad = dfs.getBestState().path;
                     label.setText("     DFS    ");
+                    totalEnergy.setText(totalEnergyString + dfs.getBestState().energy);
+                    nodeSearch.setText(nodeSearchString + dfs.getCounter()+"  ");
+
                 } else if (algorithms == 2) {
                     bestRoad = bfs.getBestState().path;
                     label.setText("     BFS    ");
+                    totalEnergy.setText(totalEnergyString + bfs.bestState.energy);
+                    nodeSearch.setText(nodeSearchString + bfs.getCounter()+"  ");
+
                 }
                 if (bestRoad == null){
                     simulation = new RiverSimulation(riverData);
@@ -150,7 +162,6 @@ public class Graphic {
                 //algorithm = new GeneticAlgorithm(riverData);
                 //test = new GeneticAlgorithmTest(riverData);
 
-                //button.doClick();
                 panel.add(simulation);
             });
         }

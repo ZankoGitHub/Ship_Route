@@ -6,13 +6,14 @@ public class AStar {
     static final int WIDTH = 7; // عرض رودخانه
     static final int LENGTH = 50; // طول رودخانه
     static final int MAX_ENERGY = 100; // انرژی اولیه قایق
-    static int counter = 0; // نشان‌دهنده تعداد نقاط طی شده
+    private int counter ; // نشان‌دهنده تعداد نقاط طی شده
 
     private int[][] river;
     private State bestState;
 
     public AStar(int[][] river){
         this.river = river;
+        this.counter = 0;
         runAStar();
     }
     // ساختار موقعیت قایق
@@ -116,5 +117,9 @@ public class AStar {
 
     public State getBestState() {
         return bestState;
+    }
+
+    public int getCounter() {
+        return counter;
     }
 }
